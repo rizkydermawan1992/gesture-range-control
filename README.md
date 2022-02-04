@@ -1,8 +1,8 @@
 # gesture-range-control
 
 **Python packages required:**
-* cvzone 1.4.1
-* mediapipe 0.8.7
+* cvzone 1.5.0
+* mediapipe 0.8.7.1
 * pyfirmata 1.1.0
 
 **Arduino Configuration**
