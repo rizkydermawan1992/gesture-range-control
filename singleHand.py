@@ -10,6 +10,7 @@ cap.set(4, 720)
 detector = HandDetector(detectionCon=0.8, maxHands=1)
 
 minHand, maxHand = 20, 250
+minBar, maxBar = 400, 150
 minAngle, maxAngle = 0, 180
 
 port = "COM7"
@@ -37,6 +38,10 @@ while True:
         cv2.rectangle(img, (500, 100), (760, 30), (0, 255, 255), cv2.FILLED)
         cv2.putText(img, f'Servo: {int(servoVal)}', (530, 70), cv2.FONT_HERSHEY_PLAIN, 2,
                     (255, 0, 0), 3)
+
+        bar = np.interp(length, [minHand, maxHand], [minBar, maxBar])
+        cv2.rectangle(img, (1180, 150), (1215, 400), (255, 0, 0), 3)
+        cv2.rectangle(img, (1180, int(bar)), (1215, 400), (0, 255, 0), cv2.FILLED)
 
         servoPin.write(servoVal)
 
